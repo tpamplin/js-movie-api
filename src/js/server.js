@@ -7,6 +7,18 @@ http.createServer((request, response) => {
         q = new URL(addr, "http://localhost:8080"),
         filePath = "";
 
+    fs.appendFile(
+        "log.txt",
+        "URL: " + addr + "\nTimeStamp: " + new Date() + "\n\n",
+        (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Added to log.");
+            }
+        }
+    );
+
     if (q.pathname.includes("documentation")) {
         filePath = __dirname + "/documentation.html";
     } else {
