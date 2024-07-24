@@ -14,7 +14,6 @@ const accessLogStream = fs.createwritestream(path.join(__dirname, "log.txt"), {
 });
 
 //json movies object
-
 let topMovies = [
     {
         title: "The Princess Bride",
@@ -66,7 +65,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to my app!");
 });
 
-app.get("/top-movies", (req, res) => {
+app.get("/movies", (req, res) => {
     res.json(topMovies);
 });
 
