@@ -3,12 +3,17 @@
 
 // import Express
 const express = require("express"),
-    morgan = require("morgan");
+    morgan = require("morgan"),
+    fs = require("fs"),
+    path = require("path");
 
 const app = express();
 
+const accessLogStream = fs.createwritestream(path.join(__dirname, "log.txt"), {
+    flags: "a",
+});
 // Logging
-app.use(morgan("common"));
+app.use(morgan("combined", { stream: accessLogStream }));
 
 // Server Responses
 app.get("/", (req, res) => {
