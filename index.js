@@ -2,12 +2,16 @@
 // Movie API responds to requests for information about movies and users
 
 // import dependencies
-const express = require("express"),
-    morgan = require("morgan"),
-    fs = require("fs"),
-    path = require("path");
+import express from "express";
+import morgan from "morgan";
+import * as fs from "fs";
+import * as path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Logging
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
@@ -23,12 +27,15 @@ app.get("/", (req, res) => {
 
 app.get("/movies", (req, res) => {
     //Reading topMovies from an external json file.
-    var topMovies;
-    fs.readFile("./public/json/topMovies.json", "utf8", (err, data) => {
-        if (err) throw err;
-        topMovies = JSON.parse(data);
-    });
-
+    let topMoviesRaw = fs.readFileSync(
+        "./public/json/topMovies.json",
+        "utf8",
+        (err, data) => {
+            if (err) throw err;
+            return data;
+        }
+    );
+    let topMovies = JSON.parse(topMoviesRaw);
     res.json(topMovies);
 });
 
