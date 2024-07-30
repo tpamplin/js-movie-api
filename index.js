@@ -5,9 +5,12 @@
 const express = require("express"),
     morgan = require("morgan"),
     fs = require("fs"),
-    path = require("path");
+    path = require("path"),
+    bodyParser = require("body-parser");
 
 const app = express();
+
+app.use(bodyParser.json());
 
 // Logging
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
