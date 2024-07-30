@@ -23,12 +23,7 @@ app.get("/", (req, res) => {
 
 app.get("/movies", (req, res) => {
     //Reading topMovies from an external json file.
-    var topMovies;
-    fs.readFile("./public/json/topMovies.json", "utf8", (err, data) => {
-        if (err) throw err;
-        topMovies = JSON.parse(data);
-    });
-
+    var topMovies = require("./public/json/topMovies.json");
     res.json(topMovies);
 });
 
