@@ -20,72 +20,82 @@
     <table>
         <tr>
             <th>Request Type</th>
+            <th>Request Body</th>
             <th>Response</th>
             <th>Endpoint</th>
             <th>Description</th>
         </tr>
 
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>GET</td>
+            <td>None.</td>
+            <td>JSON</td>
+            <td>/movies</td>
+            <td>This will return a JSON object containing a list of all movies</td>
         </tr>
 
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>GET</td>
+            <td>None.</td>
+            <td>JSON</td>
+            <td>/movies/:id</td>
+            <td>This will return a JSON object containing all information about a specific movie</td>
         </tr>
 
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>GET</td>
+            <td>None.</td>
+            <td>JSON</td>
+            <td>/genres/:name</td>
+            <td>Returns a JSON object containing a description of the genre and a list of movies in that genre.</td>
         </tr>
     
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>GET</td>
+            <td>None.</td>
+            <td>JSON</td>
+            <td>/directors/:name</td>
+            <td>Returns a JSON object containing information about a specific director.</td>
         </tr>
     
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>POST</td>
+            <td>JSON object with New User Data</td>
+            <td>201 "User Successfully Created"</td>
+            <td>/users</td>
+            <td>Adds a new user to the list of users</td>
         </tr>
     
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>PUT</td>
+            <td>JSON object with updated data</td> 
+            <td>201 "Username Changed Successfully"</td>
+            <td>/users/:id/Username</td>
+            <td>Updates the username to the new username the user has picked</td>
         </tr>
     
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>POST</td>
+            <td>JSON object with new movie data</td>
+            <td>201 "Movie added to favorites"</td>
+            <td>/users/:id/favorites</td>
+            <td>add a movie to a user's list of favorite movies.</td>
         </tr>
     
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>DELETE</td>
+            <td>None.</td>
+            <td>201 "Movie Removed from favorites"</td>
+            <td>/users/:id/favorites/:name</td>
+            <td>Removes a movie from a user's favorite list.</td>
         </tr>
     
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>DELETE</td>
+            <td>None.</td>
+            <td>201 "User deleted"</td>
+            <td>/users/:id</td>
+            <td>Removes a user from the list of users</td>
         </tr>
 
     </table>
