@@ -11,9 +11,13 @@
     <h1>MyFlix Documentation</h1>
     <h2>Introduction</h2>
 
-    <p class="intro-paragraph">This api can be used to find information about different movies, directors, actors, and genres. View in a list or search for a specific movie to see more information about it.
-        You can create a profile, so that you can save your favorite movies, etc...  to lists of favorites.</p>
-
+    <p>This api can be used to find information about different movies, directors, and genres.</p>
+    <p>You can:</p>
+    <p>Get all movies as a JSON object</p>
+    <p>Get data about a specific movie, director or genre as a JSON object</p>
+    <p>Add and remove users</p>
+    <p>Update user profiles</p>
+    <p>Add and remove movies from a user's list of favorites</p>
     
     <h2>Endpoints</h2>
 
@@ -31,7 +35,7 @@
             <td>None.</td>
             <td>JSON</td>
             <td>/movies</td>
-            <td>This will return a JSON object containing a list of all movies</td>
+            <td>Returns a JSON object containing a list of all movies</td>
         </tr>
 
         <tr>
@@ -39,7 +43,7 @@
             <td>None.</td>
             <td>JSON</td>
             <td>/movies/:id</td>
-            <td>This will return a JSON object containing all information about a specific movie</td>
+            <td>Returns a JSON object containing all information about a specific movie</td>
         </tr>
 
         <tr>
@@ -47,7 +51,7 @@
             <td>None.</td>
             <td>JSON</td>
             <td>/genres/:name</td>
-            <td>Returns a JSON object containing a description of the genre and a list of movies in that genre.</td>
+            <td>Returns a JSON object containing data about a specific genre.</td>
         </tr>
     
         <tr>
@@ -70,7 +74,7 @@
             <td>PUT</td>
             <td>JSON object with updated data</td> 
             <td>201 "Username Changed Successfully"</td>
-            <td>/users/:id/Username</td>
+            <td>/users/:id/username</td>
             <td>Updates the username to the new username the user has picked</td>
         </tr>
     
@@ -86,7 +90,7 @@
             <td>DELETE</td>
             <td>None.</td>
             <td>201 "Movie Removed from favorites"</td>
-            <td>/users/:id/favorites/:name</td>
+            <td>/users/:id/favorites/:id</td>
             <td>Removes a movie from a user's favorite list.</td>
         </tr>
     

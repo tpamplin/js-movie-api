@@ -29,8 +29,8 @@ h3{
     margin:10px;
 }
 
-.intro-paragraph {
-    margin: auto;
+p{
+    margin: 10px auto;
     text-align: center;
     max-width:500px
 }
