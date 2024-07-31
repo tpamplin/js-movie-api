@@ -23,9 +23,20 @@ th {
 }
 
 h1,
-h2,
-h3{
+h2{
     text-align:center;
+    margin:30px;
+}
+
+h3,
+h5{
+    text-align:center;
+    margin:10px
+}
+
+h4{
+    text-align: center;
+    color:blue;
     margin:10px;
 }
 
@@ -33,4 +44,12 @@ p{
     margin: 10px auto;
     text-align: center;
     max-width:500px
+}
+.end-of-section{
+    margin-bottom: 50px;
+}
+
+.code-style{
+    background-color:navy;
+    color:greenyellow;
 }

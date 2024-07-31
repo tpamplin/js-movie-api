@@ -19,7 +19,7 @@
     <p>Update user profiles</p>
     <p>Add and remove movies from a user's list of favorites</p>
     
-    <h2>Endpoints</h2>
+    <h2>Endpoints Overview</h2>
 
     <table>
         <tr>
@@ -35,15 +35,15 @@
             <td>None.</td>
             <td>JSON</td>
             <td>/movies</td>
-            <td>Returns a JSON object containing a list of all movies.</td>
+            <td><a href="#get-movies">Returns a JSON object containing a list of all movies.</a></td>
         </tr>
 
         <tr>
             <td>GET</td>
             <td>None.</td>
             <td>JSON</td>
-            <td>/movies/:name</td>
-            <td>Returns a JSON object containing all information about a specific movie.</td>
+            <td>/movies/:title</td>
+            <td><a href="#get-movie">Returns a JSON object containing all information about a specific movie.</a></td>
         </tr>
 
         <tr>
@@ -51,7 +51,7 @@
             <td>None.</td>
             <td>JSON</td>
             <td>/genres/:name</td>
-            <td>Returns a JSON object containing data about a specific genre.</td>
+            <td><a href="#get-genre">Returns a JSON object containing data about a specific genre.</a></td>
         </tr>
     
         <tr>
@@ -59,7 +59,7 @@
             <td>None.</td>
             <td>JSON</td>
             <td>/directors/:name</td>
-            <td>Returns a JSON object containing information about a specific director.</td>
+            <td><a href="#get-director">Returns a JSON object containing information about a specific director.</a></td>
         </tr>
     
         <tr>
@@ -67,7 +67,7 @@
             <td>JSON object with New User Data</td>
             <td>201 "User Successfully Created"</td>
             <td>/users</td>
-            <td>Adds a new user to the list of users.</td>
+            <td><a href="#add-user">Adds a new user to the list of users.</a></td>
         </tr>
     
         <tr>
@@ -75,7 +75,7 @@
             <td>JSON object with updated data</td> 
             <td>201 "Username Changed Successfully"</td>
             <td>/users/:id/username</td>
-            <td>Updates the username to the new username the user has picked.</td>
+            <td><a href="#update-username">Updates the username to the new username the user has picked.</a></td>
         </tr>
     
         <tr>
@@ -83,7 +83,7 @@
             <td>JSON object with new movie data</td>
             <td>201 "Movie added to favorites"</td>
             <td>/users/:id/favorites</td>
-            <td>Adds a movie to a user's list of favorite movies.</td>
+            <td><a href="#add-to-favorites">Adds a movie to a user's list of favorite movies.</a></td>
         </tr>
     
         <tr>
@@ -91,7 +91,7 @@
             <td>None.</td>
             <td>201 "Movie Removed from favorites"</td>
             <td>/users/:id/favorites/:title</td>
-            <td>Removes a movie from a user's favorite list.</td>
+            <td><a href="#remove-from-favorites">Removes a movie from a user's favorite list.</a></td>
         </tr>
     
         <tr>
@@ -99,10 +99,225 @@
             <td>None.</td>
             <td>201 "User deleted"</td>
             <td>/users/:id</td>
-            <td>Removes a user from the list of users.</td>
+            <td><a href="#delete-user">Removes a user from the list of users.</a></td>
         </tr>
 
     </table>
+
+    <h2>More Info</h2>
+
+    <h3 id="get-movies">GET All Movies</h3>
+    <h4>/movies</h4>
+    <p>A GET request to this url will return with a JSON object containing all informationa about all movies.</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                None.
+            </td>
+            <td>
+                [{"name": "The Princess Bride","year": "1987"},{"name": "The Matrix","year": "1999"},...
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p class="end-of-section">This request does not take any paramaters.</p>
+
+
+    <h3 id="get-movie">GET A Movie By Title</h3>
+    <h4>/movies/:title</h4>
+    <p>A GET request to this url will return with a JSON object containing all information about a specific movie.</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                None.
+            </td>
+            <td>
+                [{"name": "The Princess Bride","year": "1987"}]
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p>This request takes the title parameter. Replace ':title' in the url with the title of the movie you are looking for, replace any spaces with '%20', and the api should respond with any available information about that movie. For example, a GET request to:</p>
+    <p class="code-style">/movies/Pulp%20Fiction</p>
+    <p>will return:</p>
+    <p class="end-of-section code-style">[{"name": "Pulp Fiction", "year": "1994"}]</p>
+
+
+    <h3 id="get-genre">GET A Genre by Name</h3>
+    <h4>/genres/:name</h4>
+    <p>A GET request to this url will return with a JSON object containing all available information about a specific genre.</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                None.
+            </td>
+            <td>
+                [{"name": "mystery", "description": "The mystery genre is characterized by... ",  "movies": ["Sherlock Holmes", ...] }]
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p>This request takes the name parameter. Replace ':name' in the url with the name of the genre you are looking for, replace any spaces with '%20', and the api should respond with any available information about that genre. For example, a GET request to:</p>
+    <p class="code-style">/genres/fantasy</p>
+    <p>will return:</p>
+    <p class="end-of-section code-style">[{"name": "fantasy", "description": "The fantasy genre is characterized by... ",  "movies": ["The Neverending Story", ...]}]</p>
+
+    <h3 id="get-director">GET A Director by Name</h3>
+    <h4>/directors/:name</h4>
+    <p>A GET request to this url will return with a JSON object containing all available information about a specific director.</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                None.
+            </td>
+            <td>
+                [{"name": "Quentin Tarantino", "bio": "Quentin Tarantino grew up in ...",  "movies": ["Pulp Fiction", ...] }]
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p>This request takes the name parameter. Replace ':name' in the url with the name of the director you are looking for, replace any spaces with '%20', and the api should respond with any available information about that director. For example, a GET request to:</p>
+    <p class="code-style">/directors/Stephen%20Spielberg</p>
+    <p>will return:</p>
+    <p class="end-of-section code-style">[{"name": "Stephen Spielberg", "bio": "Stephen Spielberg grew up in ... ",  "movies": ["Jurassic Park", ...]}]</p>
+
+    <h3 id="add-user">POST A New User</h3>
+    <h4>/users</h4>
+    <p>A POST request to this url will add the given user JSON object to the JSON object containing all current users.</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                [{"username": "NewUser", "email": "newuser@domain.com", "favorites": []}]
+            </td>
+            <td>
+                Status Code 201, User confirmed created successfully:<br>[{"username": "NewUser", "id": "..." "email": "newuser@domain.com", "favorites": []}]
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p class="end-of-section">This request does not take any paramaters.</p>
+
+    <h3 id="update-username">PUT a new username</h3>
+    <h4>/users/:id/username</h4>
+    <p>A PUT request to this url will update a specific user's username with a new username given by the user.</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                ["username": "NewerUser" ]
+            </td>
+            <td>
+                Status Code 201. Username updated successfully:<br>[{"username": "NewerUser", "id": "..." "email": "newuser@domain.com", "favorites": [...]}]
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p>This request takes the id parameter. Replace ':id' in the url with the id of the user whose username you are trying to change, the api should change the username and then send back the new updated user object. For example, a PUT request to:</p>
+    <p class="code-style">/users/12/username</p>
+    <p>along with the appropriate request body, containing the new username, will update the username and return:</p>
+    <p class="end-of-section code-style">[{"username": "NewUserName", "id": "..." "email": "newuser@domain.com", "favorites": [...]}]</p>
+
+    <h3 id="add-to-favorites">Post A Movie To A User's Favorites</h3>
+    <h4>/movies/:title</h4>
+    <p>A POST Request to this url will add a specific movie to a specific user's favorites list.</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                [{"name": "Pulp Fiction", "year": "1994"}]
+            </td>
+            <td>
+                Status Code 201, movie added to favorites successfully. <br> [{"name": "Pulp Fiction", "year": "1994"}]
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p>This request takes the id parameter. Replace ':id' in the url with the id of the user whose favorites list you are trying to update, the api should add the movie to the user's favorites list, and then respond with the object it just added. For example, a POST request to:</p>
+    <p class="code-style">/users/12/favorites</p>
+    <p>along with the appropriate request body, containing the new movie that you wish to add to the list, would add that movie to the list and return:</p>
+    <p class="end-of-section code-style">[{"name": "Pulp Fiction", "year": "1994"}]</p>
+
+    <h3 id="remove-from-favorites">DELETE A Movie from A User's Favorites</h3>
+    <h4>/users/:id/favorites/:title</h4>
+    <p>A DELETE request to this url will remove a movie from a specific user's favorites</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                None.
+            </td>
+            <td>
+                Status Code 201. Movie removed from favorites successfully.
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p>This request takes the id parameter and the title parameter. Replace ':id' in the url with the id of the user whose favorites list you are trying to update, and ':title' with the title of the movie you wish to remove from their favorites list.
+        Make sure to replace any spaces in the title of the movie with '%20'. The api should remove the movie from the user's favorites list, and then respond with a confirmation status code. For example, a DELETE request to:</p>
+    <p class="code-style">/users/12/favorites/Pulp%20Fiction</p>
+    <p>Will remove 'Pulp Fiction' from the list and return:</p>
+    <p class="end-of-section code-style">Status Code 201: Movie removed from favorites successfully.</p>
+
+    <h3 id="delete-user">DELETE A User</h3>
+    <h4>/users/:id</h4>
+    <p>A DELETE request to this url will delete a user from the system</p>
+    <h3>Examples</h3>
+    <table>
+        <tr>
+            <th>Request Body Example</th>
+            <th>Response Body Example</th>
+        </tr>
+        <tr>
+            <td>
+                None.
+            </td>
+            <td>
+                Status Code 201. User deleted successfully.
+            </td>
+        </tr>
+    </table>
+    <h5>Parameters:</h5>
+    <p>This request takes the id parameter. Replace ':id' in the url with the id of the user who you are deleting. The api should delete the user, and then respond with a confirmation status code. For example, a DELETE request to:</p>
+    <p class="code-style">/users/12</p>
+    <p>Will delete the user with the id of 12 and return:</p>
+    <p class="end-of-section code-style">Status Code 201: User Deleted Successfully.</p>
 
 </body>
 </html>
