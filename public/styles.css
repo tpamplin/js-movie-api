@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#f1f1f2 ;
+}
+
+table{
+    margin:auto;
+    border: 4px solid black;
+    background-color: white;
+}
+
+tr,
+td,
+th {
+    border: 2px solid black;
+    margin: 4px;
+    padding: 2px;
+    text-align:center;
+}
+
+h1,
+h2,
+h3{
+    text-align:center;
+    margin:10px;
+}
+
+.intro-paragraph {
+    margin: auto;
+    text-align: center;
+    max-width:500px
+}

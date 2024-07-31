@@ -53,3 +53,8 @@ TimeStamp: Mon Jul 22 2024 10:08:37 GMT-0400 (Eastern Daylight Time)
 ::1 - - [30/Jul/2024:14:51:50 +0000] "GET /movies HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
 ::1 - - [30/Jul/2024:14:51:52 +0000] "GET /movies HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
 ::1 - - [30/Jul/2024:14:52:07 +0000] "GET /movies HTTP/1.1" 200 383 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+::1 - - [30/Jul/2024:15:24:54 +0000] "GET /movies HTTP/1.1" 200 383 "-" "PostmanRuntime/7.40.0"
+::1 - - [30/Jul/2024:15:25:01 +0000] "GET / HTTP/1.1" 200 18 "-" "PostmanRuntime/7.40.0"
+::1 - - [30/Jul/2024:15:25:05 +0000] "GET /documentation.html HTTP/1.1" 200 572 "-" "PostmanRuntime/7.40.0"
+::1 - - [30/Jul/2024:15:27:30 +0000] "POST /movies HTTP/1.1" 404 146 "-" "PostmanRuntime/7.40.0"
+::1 - - [30/Jul/2024:19:12:42 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
