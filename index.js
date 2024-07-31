@@ -19,6 +19,9 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
 
 app.use(morgan("combined", { stream: accessLogStream }));
 
+//Load movies
+var movies = require("./public/json/movies.json");
+
 // Server Responses
 //default
 app.get("/", (req, res) => {
@@ -28,13 +31,18 @@ app.get("/", (req, res) => {
 //Returns a JSON object containing a list of all movies.
 app.get("/movies", (req, res) => {
     //Reading topMovies from an external json file.
-    var movies = require("./public/json/movies.json");
     res.json(movies);
 });
 
 //Returns a JSON object containing all information about a specific movie.
-app.get("/movies/:id", (req, res) => {
-    res.send("Successful GET request returning data on a specific movie.");
+app.get("/movies/:name", (req, res) => {
+    console.log(req.params.name);
+    res.json(
+        movies.find((movie) => {
+            console.log(movie.name);
+            return movie.name === req.params.name;
+        })
+    );
 });
 
 //Returns a JSON object containing data about a specific genre.
@@ -59,23 +67,17 @@ app.put("/users/:id/username", (req, res) => {
 
 //Adds a movie to a user's list of favorite movies.
 app.post("/users/:id/favorites", (req, res) => {
-    res.send(
-        "Successful POST request, adding a movie to a user's favorites list."
-    );
+    res.send("Successful POST request, adding a movie to a user's favorites list.");
 });
 
 //Removes a movie from a user's favorite list.
-app.delete("/users/:id/favorites/:id", (req, res) => {
-    res.send(
-        "Successful DELETE request, removing a movie from user's favorites list."
-    );
+app.delete("/users/:id/favorites/:title", (req, res) => {
+    res.send("Successful DELETE request, removing a movie from user's favorites list.");
 });
 
 //Removes a user from the list of users.
 app.delete("/users/:id", (req, res) => {
-    res.send(
-        "Sucessful DELETE request, removing a user from the list of users."
-    );
+    res.send("Sucessful DELETE request, removing a user from the list of users.");
 });
 
 app.use(express.static("public"));

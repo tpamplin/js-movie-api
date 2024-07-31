@@ -1,42 +1,42 @@
 [
     {
-        "title": "The Princess Bride",
+        "name": "The Princess Bride",
         "year": "1987"
     },
     {
-        "title": "The Matrix",
+        "name": "The Matrix",
         "year": "1999"
     },
     {
-        "title": "Ip Man",
+        "name": "Ip Man",
         "year": "2008"
     },
     {
-        "title": "Pulp Fiction",
+        "name": "Pulp Fiction",
         "year": "1994"
     },
     {
-        "title": "The Dark Knight",
+        "name": "The Dark Knight",
         "year": "2008"
     },
     {
-        "title": "Interstellar",
+        "name": "Interstellar",
         "year": "2014"
     },
     {
-        "title": "Shooter",
+        "name": "Shooter",
         "year": "2007"
     },
     {
-        "title": "Taken",
+        "name": "Taken",
         "year": "2008"
     },
     {
-        "title": "Shaun of the Dead",
+        "name": "Shaun of the Dead",
         "year": "2004"
     },
     {
-        "title": "Spider-Man",
+        "name": "Spider-Man",
         "year": "2002"
     }
 ]
