@@ -8,7 +8,9 @@ const express = require("express"),
     morgan = require("morgan"),
     fs = require("fs"),
     path = require("path"),
-    bodyParser = require("body-parser");
+    bodyParser = require("body-parser"),
+    mongoose = require("mongoose"),
+    Models = require("./models.js");
 
 const app = express();
 
