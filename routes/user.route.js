@@ -1,29 +1,24 @@
 const express = require("express");
 const userRouter = express.Router();
+const Models = require("../public/models.js");
+
+const Users = Models.User;
+
+const userController = require("../controllers/users.controller.js");
 
 //Adds a new user to the list of users.
-userRouter.post("/", (req, res) => {
-    res.send("Successful POST request, adding a user to the list of users.");
-});
+userRouter.post("/", userController.getUser);
 
 //Updates the username to the new username the user has picked.
-userRouter.put("/:id/username", (req, res) => {
-    res.send("Successful PUT request, updating a username.");
-});
+userRouter.put("/:id/username", userController.updateUsername);
 
 //Adds a movie to a user's list of favorite movies.
-userRouter.post("/:id/favorites", (req, res) => {
-    res.send("Successful POST request, adding a movie to a user's favorites list.");
-});
+userRouter.post("/:id/favorites", userController.addFavorite);
 
 //Removes a movie from a user's favorite list.
-userRouter.delete("/:id/favorites/:title", (req, res) => {
-    res.send("Successful DELETE request, removing a movie from user's favorites list.");
-});
+userRouter.delete("/:id/favorites/:title", userController.deleteFavorite);
 
 //Removes a user from the list of users.
-userRouter.delete("/:id", (req, res) => {
-    res.send("Sucessful DELETE request, removing a user from the list of users.");
-});
+userRouter.delete("/:id", userController.deleteUser);
 
 module.exports = userRouter;

@@ -135,3 +135,6 @@ TimeStamp: Mon Jul 22 2024 10:08:37 GMT-0400 (Eastern Daylight Time)
 ::1 - - [05/Aug/2024:16:42:55 +0000] "GET /movies/The%20Matrix HTTP/1.1" 500 26 "-" "PostmanRuntime/7.40.0"
 ::1 - - [05/Aug/2024:16:43:15 +0000] "GET /movies/Pulp%20Fiction HTTP/1.1" 500 26 "-" "PostmanRuntime/7.40.0"
 ::1 - - [05/Aug/2024:16:44:13 +0000] "GET /movies/Pulp%20Fiction HTTP/1.1" 200 37 "-" "PostmanRuntime/7.40.0"
+::1 - - [27/Aug/2024:14:38:27 +0000] "POST /movies HTTP/1.1" 404 146 "-" "PostmanRuntime/7.40.0"
+::1 - - [27/Aug/2024:14:42:05 +0000] "POST /users HTTP/1.1" 400 24 "-" "PostmanRuntime/7.40.0"
+::1 - - [27/Aug/2024:14:48:43 +0000] "POST /users?Username=KingJohn&Password=BiggustKingus&Email=KingJohn@england.com&Birthday=1571-05-17T00:00:00.441+00:00 HTTP/1.1" 400 24 "-" "PostmanRuntime/7.40.0"

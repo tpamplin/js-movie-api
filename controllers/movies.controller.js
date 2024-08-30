@@ -10,4 +10,8 @@ module.exports = {
             })
         );
     },
+
+    getAll: (req, res) => {
+        console.log("Getting all movies.");
+    },
 };
