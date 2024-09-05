@@ -1,17 +1,25 @@
-var movies = require("../public/json/movies.json");
+const Models = require("../public/models.js");
+
+const Movie = Models.Movie;
 
 module.exports = {
-    getMovie: (req, res) => {
-        console.log(req.params.name);
-        res.json(
-            movies.find((movie) => {
-                console.log(movie.name);
-                return movie.name === req.params.name;
-            })
-        );
+    getMovie: async (req, res) => {
+        console.log("finding " + req.params.Title);
+        await Movie.findOne({ Title: req.params.Title })
+            .then((movie) => res.json(movie))
+            .catch((error) => {
+                console.error(error);
+                res.status(500).send("Error: " + error);
+            });
     },
 
-    getAll: (req, res) => {
+    getAll: async (req, res) => {
         console.log("Getting all movies.");
+        await Movie.find()
+            .then((movies) => res.status(200).json(movies))
+            .catch((error) => {
+                console.error(error);
+                res.status(500).send("Error: " + error);
+            });
     },
 };

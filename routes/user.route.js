@@ -10,15 +10,15 @@ const userController = require("../controllers/users.controller.js");
 userRouter.post("/", userController.getUser);
 
 //Updates the username to the new username the user has picked.
-userRouter.put("/:id/username", userController.updateUsername);
+userRouter.put("/:Username", userController.updateUsername);
 
 //Adds a movie to a user's list of favorite movies.
-userRouter.post("/:id/favorites", userController.addFavorite);
+userRouter.post("/:Username/favorites", userController.addFavorite);
 
 //Removes a movie from a user's favorite list.
-userRouter.delete("/:id/favorites/:title", userController.deleteFavorite);
+userRouter.delete("/:Username/favorites", userController.deleteFavorite);
 
 //Removes a user from the list of users.
-userRouter.delete("/:id", userController.deleteUser);
+userRouter.delete("/:Username", userController.deleteUser);
 
 module.exports = userRouter;

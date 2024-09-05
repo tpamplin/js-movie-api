@@ -1,4 +1,4 @@
-const Models = require("./models.js");
+const Models = require("../public/models.js");
 
 const Users = Models.User;
 
@@ -30,19 +30,67 @@ module.exports = {
             });
     },
 
-    updateUsername: (req, res) => {
-        res.send("Successful PUT request, updating a username.");
+    updateUsername: async (req, res) => {
+        await Users.findOneAndUpdate(
+            { Username: req.params.Username },
+            { $set: { Username: req.body.Username } },
+            { new: true }
+        )
+            .then((updatedUser) => {
+                res.json(updatedUser);
+                console.log("Username: " + req.params.Username + " updated to: " + req.body.Username);
+            })
+            .catch((err) => {
+                console.error(err);
+                res.status(500).send("Error: " + err);
+            });
     },
 
-    addFavorite: (req, res) => {
-        res.send("Successful POST request, adding a movie to a user's favorites list.");
+    addFavorite: async (req, res) => {
+        await Users.findOneAndUpdate(
+            { Username: req.params.Username },
+            { $push: { Favorites: req.body.MovieID } },
+            { new: true }
+        )
+            .then((updatedUser) => {
+                res.json(updatedUser);
+                console.log("Adding " + req.body.MovieID + " to " + req.params.Username + "'s favorites list.");
+            })
+            .catch((err) => {
+                console.error(err);
+                res.status(500).send("Error: " + err);
+            });
     },
 
-    deleteFavorite: (req, res) => {
-        res.send("Successful DELETE request, removing a movie from user's favorites list.");
+    deleteFavorite: async (req, res) => {
+        console.log("Removing " + req.body.MovieID + " from " + req.params.Username + "'s favorites list.");
+        await Users.findOneAndUpdate(
+            { Username: req.params.Username },
+            { $pull: { Favorites: req.body.MovieID } },
+            { new: true }
+        )
+            .then((updatedUser) => {
+                res.json(updatedUser);
+            })
+            .catch((err) => {
+                console.error(err);
+                res.status(500).send("Error: " + err);
+            });
     },
 
-    deleteUser: (req, res) => {
-        res.send("Sucessful DELETE request, removing a user from the list of users.");
+    deleteUser: async (req, res) => {
+        console.log("Deleting user: " + req.params.Username);
+        await Users.findOneAndDelete({ Username: req.params.Username })
+            .then((user) => {
+                if (!user) {
+                    res.status(400).send(req.params.Username + " was not found.");
+                } else {
+                    res.status(200).send(req.params.Username + " was deleted");
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                res.status(500).send("Error: " + err);
+            });
     },
 };

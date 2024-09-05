@@ -16,20 +16,12 @@ let movieSchema = mongoose.Schema({
     Featured: Boolean,
 });
 
-// let userSchema = mongoose.Schema({
-//     Username: { type: String, required: true },
-//     Password: { type: String, required: true },
-//     Email: { type: String, required: true },
-//     Birthday: Date,
-//     Favorites: [{ type: mongoose.Schema.Types.Array.ObjectId, ref: "Movie" }],
-// });
-
 let userSchema = mongoose.Schema({
     Username: { type: String, required: true },
     Password: { type: String, required: true },
     Email: { type: String, required: true },
     Birthday: Date,
-    FavoriteMovies: [{ type: mongoose.Schema.Types.ObjectId, ref: "Movie" }],
+    Favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "Movie" }],
 });
 
 let Movie = mongoose.model("Movie", movieSchema);
