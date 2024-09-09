@@ -10,6 +10,6 @@ const movieController = require("../controllers/movies.controller");
 movieRouter.get("/", movieController.getAll);
 
 //Returns a JSON object containing all information about a specific movie.
-movieRouter.get("/:name", movieController.getMovie);
+movieRouter.get("/:Title", movieController.getMovie);
 
 module.exports = movieRouter;

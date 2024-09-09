@@ -3,7 +3,7 @@ const Models = require("../public/models.js");
 const Users = Models.User;
 
 module.exports = {
-    getUser: async (req, res) => {
+    addUser: async (req, res) => {
         await Users.findOne({ Usernmame: req.body.Username })
             .then((user) => {
                 if (user) {

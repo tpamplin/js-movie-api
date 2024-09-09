@@ -7,7 +7,7 @@ const Users = Models.User;
 const userController = require("../controllers/users.controller.js");
 
 //Adds a new user to the list of users.
-userRouter.post("/", userController.getUser);
+userRouter.post("/", userController.addUser);
 
 //Updates the username to the new username the user has picked.
 userRouter.put("/:Username", userController.updateUsername);
