@@ -90,7 +90,7 @@
             <td>DELETE</td>
             <td>None.</td>
             <td>201 "Movie Removed from favorites"</td>
-            <td>/users/:id/favorites/:title</td>
+            <td>/users/:id/favorites</td>
             <td><a href="#remove-from-favorites">Removes a movie from a user's favorite list.</a></td>
         </tr>
     
@@ -119,8 +119,43 @@
             <td>
                 None.
             </td>
-            <td>
-                [{"name": "The Princess Bride","year": "1987"},{"name": "The Matrix","year": "1999"},...
+            <td class="example">
+                [<br>
+                {<br>
+                    "Genre": {<br>
+                        "Name": "Drama",<br>
+                        "Description": "The drama genre is a broad category that features stories portraying human experiences, emotions, conflicts, and relationships in a realistc and emotionally impactful way. Dramas delve into the complexities of human life, often exploring themes of love, loss, morality, societal issues, personal growth, with the aim to evoke an emotional response from the audience by presenting relatable and thought-provoking stories."<br>
+                    },<br>
+                    "Director": {<br>
+                        "Name": "Christopher Nolan",<br>
+                        "Bio": "Sir Christopher Edward Nolan CBE (born 30 July 1970) is a British and American filmmaker. Known for his Hollywood blockbusters with complex storytelling, he is considered a leading filmmaker of the 21st century. Nolan's films have earned over $6 billion worldwide, making him the seventh-highest-grossing film director of all time. His accolades include two Academy Awards, a Golden Globe Award and two British Academy Film Awards. Nolan was appointed a Commander of the Order of the British Empire in 2019, and received a knighthood in 2024 for his contributions to film.",<br>
+                        "Birth": "1970"<br>
+                    },<br>
+                    "Actors": [],<br>
+                    "_id": "66bba02c90e880a8cf228fb9",<br>
+                    "Title": "Interstellar",<br>
+                    "Description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft to find a new planet for humans.",<br>
+                    "ImagePath": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UY3600_.jpg",<br>
+                    "Featured": false<br>
+                }, <br>
+                {<br>
+                    "Genre": {<br>
+                        "Name": "Adventure",<br>
+                        "Description": "The adventure genre features exciting journeys, quests, or expeditions undertaken by characters who often face challenges, obstacles, and risks in pursuit of a goal. Adventures can take place in a wide range of settings, from exotic and fantastical locations to historical or even everyday environments."<br>
+                    },<br>
+                    "Director": {<br>
+                        "Name": "Rob Reiner",<br>
+                        "Bio": "Rob Reiner (born March 6, 1947, Bronx, New York, U.S.) is an American actor and director known especially for his role as Michael (“Meathead”) Stivic in the television series All in the Family (1971–79) and for his direction of such culturally resonant films as This Is Spinal Tap (1984), The Princess Bride (1987), When Harry Met Sally… (1989), and A Few Good Men (1992).",<br>
+                        "Birth": "1947"<br>
+                    },<br>
+                    "Actors": [],<br>
+                    "_id": "66bb96d090e880a8cf228fb5",<br>
+                    "Title": "The Princess Bride",<br>
+                    "Description": "A bedridden boy's grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.",<br>
+                    "ImagePath": "https://m.media-amazon.com/images/M/MV5BYzdiOTVjZmQtNjAyNy00YjA2LTk5ZTAtNmJkMGQ5N2RmNjUxXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UY4219_.jpg",<br>
+                    "Featured": false<br>
+                }, ...<br>
+                ]
             </td>
         </tr>
     </table>
@@ -129,7 +164,7 @@
 
 
     <h3 id="get-movie">GET A Movie By Title</h3>
-    <h4>/movies/:title</h4>
+    <h4>/movies/:Title</h4>
     <p>A GET request to this url will return with a JSON object containing all information about a specific movie.</p>
     <h3>Examples</h3>
     <table>
@@ -141,20 +176,35 @@
             <td>
                 None.
             </td>
-            <td>
-                [{"name": "The Princess Bride","year": "1987"}]
+            <td class="example">
+                {<br>
+                    "Genre": {<br>
+                        "Name": "Drama",<br>
+                        "Description": "The drama genre is a broad category that features stories portraying human experiences, emotions, conflicts, and relationships in a realistc and emotionally impactful way. Dramas delve into the complexities of human life, often exploring themes of love, loss, morality, societal issues, personal growth, with the aim to evoke an emotional response from the audience by presenting relatable and thought-provoking stories."<br>
+                    },<br>
+                    "Director": {<br>
+                        "Name": "Christopher Nolan",<br>
+                        "Bio": "Sir Christopher Edward Nolan CBE (born 30 July 1970) is a British and American filmmaker. Known for his Hollywood blockbusters with complex storytelling, he is considered a leading filmmaker of the 21st century. Nolan's films have earned over $6 billion worldwide, making him the seventh-highest-grossing film director of all time. His accolades include two Academy Awards, a Golden Globe Award and two British Academy Film Awards. Nolan was appointed a Commander of the Order of the British Empire in 2019, and received a knighthood in 2024 for his contributions to film.",<br>
+                        "Birth": "1970"<br>
+                    },<br>
+                    "Actors": [],<br>
+                    "_id": "66bba02c90e880a8cf228fb9",<br>
+                    "Title": "Interstellar",<br>
+                    "Description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft to find a new planet for humans.",<br>
+                    "ImagePath": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UY3600_.jpg",<br>
+                    "Featured": false<br>
+                }
             </td>
         </tr>
     </table>
     <h5>Parameters:</h5>
-    <p>This request takes the title parameter. Replace ':title' in the url with the title of the movie you are looking for, replace any spaces with '%20', and the api should respond with any available information about that movie. For example, a GET request to:</p>
-    <p class="code-style">/movies/Pulp%20Fiction</p>
-    <p>will return:</p>
-    <p class="end-of-section code-style">[{"name": "Pulp Fiction", "year": "1994"}]</p>
+    <p>This request takes the title parameter. Replace ':Title' in the url with the title of the movie you are looking for, replace any spaces with '%20', and the api should respond with any available information about that movie. For example, a GET request to:</p>
+    <p class="code-style">/movies/Interstellar</p>
+    <p class="end-of-section">would return the json object above</p>
 
 
     <h3 id="get-genre">GET A Genre by Name</h3>
-    <h4>/genres/:name</h4>
+    <h4>/genres/:Name</h4>
     <p>A GET request to this url will return with a JSON object containing all available information about a specific genre.</p>
     <h3>Examples</h3>
     <table>
@@ -166,19 +216,22 @@
             <td>
                 None.
             </td>
-            <td>
-                [{"name": "mystery", "description": "The mystery genre is characterized by... ",  "movies": ["Sherlock Holmes", ...] }]
+            <td class="example">
+                {<br>
+                    "Name": "Action",<br>
+                    "Description": "The action genre features fast-paced, thrilling, and intense sequences of physical feats, combat, and excitement. The characters of these stories are involved in daring and often dangerous situations, requiring them to rely on their physical prowess, skills, and quick thinking to overcome challenges and adversaries."<br>
+                }
             </td>
         </tr>
     </table>
     <h5>Parameters:</h5>
-    <p>This request takes the name parameter. Replace ':name' in the url with the name of the genre you are looking for, replace any spaces with '%20', and the api should respond with any available information about that genre. For example, a GET request to:</p>
-    <p class="code-style">/genres/fantasy</p>
-    <p>will return:</p>
-    <p class="end-of-section code-style">[{"name": "fantasy", "description": "The fantasy genre is characterized by... ",  "movies": ["The Neverending Story", ...]}]</p>
+    <p>This request takes the name parameter. Replace ':Name' in the url with the name of the genre you are looking for, replace any spaces with '%20', and the api should respond with any available information about that genre. For example, a GET request to:</p>
+    <p class="code-style">/genres/Action</p>
+    <p class="end-of-section">would return the json object above</p>
+
 
     <h3 id="get-director">GET A Director by Name</h3>
-    <h4>/directors/:name</h4>
+    <h4>/directors/:Name</h4>
     <p>A GET request to this url will return with a JSON object containing all available information about a specific director.</p>
     <h3>Examples</h3>
     <table>
@@ -190,16 +243,20 @@
             <td>
                 None.
             </td>
-            <td>
-                [{"name": "Quentin Tarantino", "bio": "Quentin Tarantino grew up in ...",  "movies": ["Pulp Fiction", ...] }]
+            <td class="example">
+                {<br>
+                    "Name": "Quentin Tarantino",<br>
+                    "Bio": "Quentin Jerome Tarantino (born March 27, 1963) is an American filmmaker and actor. His films are characterized by stylized violence, extended dialogue often with profanity, and references to popular culture. Tarantino's work has been subject to criticism, such as the depictions of violence and frequent inclusion of racial slurs. During Tarantino's career, his films have garnered a cult following, as well as critical and commercial success. He is the recipient of two Academy Awards, two BAFTA Awards, and four Golden Globe Awards.",<br>
+                    "Birth": "1964"<br>
+                }
             </td>
         </tr>
     </table>
     <h5>Parameters:</h5>
     <p>This request takes the name parameter. Replace ':name' in the url with the name of the director you are looking for, replace any spaces with '%20', and the api should respond with any available information about that director. For example, a GET request to:</p>
-    <p class="code-style">/directors/Stephen%20Spielberg</p>
-    <p>will return:</p>
-    <p class="end-of-section code-style">[{"name": "Stephen Spielberg", "bio": "Stephen Spielberg grew up in ... ",  "movies": ["Jurassic Park", ...]}]</p>
+    <p class="code-style">/directors/Quentin%20Tarantino</p>
+    <p class="end-of-section">would return the json object above</p>
+
 
     <h3 id="add-user">POST A New User</h3>
     <h4>/users</h4>
@@ -211,11 +268,25 @@
             <th>Response Body Example</th>
         </tr>
         <tr>
-            <td>
-                [{"username": "NewUser", "email": "newuser@domain.com", "favorites": []}]
+            <td class="example">
+                {<br>
+                    "Username": "BigTugg",<br>
+                    "Password": "Tuggerino1234",<br>
+                    "Email": "big@tugg.com",<br>
+                    "Birthday": "1976-04-23T18:25:43.511Z"<br>
+                }
             </td>
-            <td>
-                Status Code 201, User confirmed created successfully:<br>[{"username": "NewUser", "id": "..." "email": "newuser@domain.com", "favorites": []}]
+            <td class="example">
+                User Created Successfully:<br>
+                {<br>
+                    "Username": "BigTugg",<br>
+                    "Password": "Tuggerino1234",<br>
+                    "Email": "big@tugg.com",<br>
+                    "Birthday": "1976-04-23T18:25:43.511Z",<br>
+                    "Favorites": [],<br>
+                    "_id": "66defb14cef558418a56ff61",<br>
+                    "__v": 0<br>
+                }
             </td>
         </tr>
     </table>
@@ -223,7 +294,7 @@
     <p class="end-of-section">This request does not take any paramaters.</p>
 
     <h3 id="update-username">PUT a new username</h3>
-    <h4>/users/:id/username</h4>
+    <h4>/users/:Username</h4>
     <p>A PUT request to this url will update a specific user's username with a new username given by the user.</p>
     <h3>Examples</h3>
     <table>
@@ -232,22 +303,34 @@
             <th>Response Body Example</th>
         </tr>
         <tr>
-            <td>
-                ["username": "NewerUser" ]
+            <td class="example">
+                {"Username": "WallyBoy"}
             </td>
-            <td>
-                Status Code 201. Username updated successfully:<br>[{"username": "NewerUser", "id": "..." "email": "newuser@domain.com", "favorites": [...]}]
+            <td class="example">
+                Status Code 201. Username updated successfully:<br>
+                {<br>
+                    "_id": "66bbb79ef89578c9fe228fb5",<br>
+                    "Username": "WallyBoy",<br>
+                    "Password": "Password123!",<br>
+                    "Email": "wollonof@bigwollonof.com",<br>
+                    "Birthday": "1989-04-27T00:00:00.000Z",<br>
+                    "Favorites": [<br>
+                        "66bba02c90e880a8cf228fb9",
+                        "66bba48590e880a8cf228fbd",
+                        "66bb983190e880a8cf228fb6",
+                        "66bba1b390e880a8cf228fbb"
+                    ]
+                }
             </td>
         </tr>
     </table>
     <h5>Parameters:</h5>
-    <p>This request takes the id parameter. Replace ':id' in the url with the id of the user whose username you are trying to change, the api should change the username and then send back the new updated user object. For example, a PUT request to:</p>
-    <p class="code-style">/users/12/username</p>
-    <p>along with the appropriate request body, containing the new username, will update the username and return:</p>
-    <p class="end-of-section code-style">[{"username": "NewUserName", "id": "..." "email": "newuser@domain.com", "favorites": [...]}]</p>
+    <p>This request takes the username parameter. Replace ':Username' in the url with the current username of the user whose username you are trying to change, the api should change the username and then send back the new updated user object. For example, a PUT request to:</p>
+    <p class="code-style">/users/wollonof</p>
+    <p class="end-of-section">along with a request body containing the new username, would return the json object above</p>
 
     <h3 id="add-to-favorites">Post A Movie To A User's Favorites</h3>
-    <h4>/movies/:title</h4>
+    <h4>/users/:Username/favorites</h4>
     <p>A POST Request to this url will add a specific movie to a specific user's favorites list.</p>
     <h3>Examples</h3>
     <table>
@@ -256,19 +339,29 @@
             <th>Response Body Example</th>
         </tr>
         <tr>
-            <td>
-                [{"name": "Pulp Fiction", "year": "1994"}]
+            <td class="example">
+                {"MovieID": "66bba02c90e880a8cf228fb9"}
             </td>
-            <td>
-                Status Code 201, movie added to favorites successfully. <br> [{"name": "Pulp Fiction", "year": "1994"}]
+            <td class="example">
+                Status Code 201, movie added to favorites successfully. <br> 
+                {<br>
+                    "_id": "66defb14cef558418a56ff61",<br>
+                    "Username": "BigTugg",<br>
+                    "Password": "Tuggerino1234",<br>
+                    "Email": "big@tugg.com",<br>
+                    "Birthday": "1976-04-23T18:25:43.511Z",<br>
+                    "Favorites": [<br>
+                        "66bba02c90e880a8cf228fb9"<br>
+                    ],<br>
+                    "__v": 0<br>
+                }
             </td>
         </tr>
     </table>
     <h5>Parameters:</h5>
-    <p>This request takes the id parameter. Replace ':id' in the url with the id of the user whose favorites list you are trying to update, the api should add the movie to the user's favorites list, and then respond with the object it just added. For example, a POST request to:</p>
+    <p>This request takes the username parameter. Replace ':Username' in the url with the id of the user whose favorites list you are trying to update, the api should add the movie to the user's favorites list, and then respond with the object it just added. For example, a POST request to:</p>
     <p class="code-style">/users/12/favorites</p>
-    <p>along with the appropriate request body, containing the new movie that you wish to add to the list, would add that movie to the list and return:</p>
-    <p class="end-of-section code-style">[{"name": "Pulp Fiction", "year": "1994"}]</p>
+    <p class="end-of-section">along with the appropriate request body, containing the new ObjectId of the movie that you wish to add to the list, would add that movie to the list and return the json object above</p>
 
     <h3 id="remove-from-favorites">DELETE A Movie from A User's Favorites</h3>
     <h4>/users/:id/favorites/:title</h4>
@@ -281,22 +374,28 @@
         </tr>
         <tr>
             <td>
-                None.
+                {"MovieID": "66bba02c90e880a8cf228fb9"}
             </td>
             <td>
-                Status Code 201. Movie removed from favorites successfully.
+                {
+                    "_id": "66defb14cef558418a56ff61",
+                    "Username": "BigTugg",
+                    "Password": "Tuggerino1234",
+                    "Email": "big@tugg.com",
+                    "Birthday": "1976-04-23T18:25:43.511Z",
+                    "Favorites": [],
+                    "__v": 0
+                }
             </td>
         </tr>
     </table>
     <h5>Parameters:</h5>
-    <p>This request takes the id parameter and the title parameter. Replace ':id' in the url with the id of the user whose favorites list you are trying to update, and ':title' with the title of the movie you wish to remove from their favorites list.
-        Make sure to replace any spaces in the title of the movie with '%20'. The api should remove the movie from the user's favorites list, and then respond with a confirmation status code. For example, a DELETE request to:</p>
-    <p class="code-style">/users/12/favorites/Pulp%20Fiction</p>
-    <p>Will remove 'Pulp Fiction' from the list and return:</p>
-    <p class="end-of-section code-style">Status Code 201: Movie removed from favorites successfully.</p>
+    <p>This request takes the Username parameter. Replace ':Username' in the url with the username of the user whose favorites list you are trying to update, and add the id of the movie that you want to remove to the request body. for example a DELETE request to: </p>
+    <p class="code-style">/users/BigTugg/favorites</p>
+    <p class="end-of-section">along with the request body shown above, will respond with the json object shown above.</p>
 
     <h3 id="delete-user">DELETE A User</h3>
-    <h4>/users/:id</h4>
+    <h4>/users/:Username</h4>
     <p>A DELETE request to this url will delete a user from the system</p>
     <h3>Examples</h3>
     <table>
@@ -309,15 +408,15 @@
                 None.
             </td>
             <td>
-                Status Code 201. User deleted successfully.
+                Status Code 201: BigTugg was deleted
             </td>
         </tr>
     </table>
     <h5>Parameters:</h5>
-    <p>This request takes the id parameter. Replace ':id' in the url with the id of the user who you are deleting. The api should delete the user, and then respond with a confirmation status code. For example, a DELETE request to:</p>
-    <p class="code-style">/users/12</p>
-    <p>Will delete the user with the id of 12 and return:</p>
-    <p class="end-of-section code-style">Status Code 201: User Deleted Successfully.</p>
+    <p>This request takes the id parameter. Replace ':Username' in the url with the id of the user who you are deleting. The api should delete the user, and then respond with a confirmation status code. For example, a DELETE request to:</p>
+    <p class="code-style">/users/BigTugg</p>
+    <p>Will delete the user with the Username BigTugg and return:</p>
+    <p class="end-of-section code-style">Status Code 201: BigTugg was deleted.</p>
 
 </body>
 </html>

@@ -207,3 +207,7 @@ TimeStamp: Mon Jul 22 2024 10:08:37 GMT-0400 (Eastern Daylight Time)
 ::1 - - [09/Sep/2024:13:43:35 +0000] "DELETE /users/BigTugg/favorites HTTP/1.1" 200 166 "-" "PostmanRuntime/7.40.0"
 ::1 - - [09/Sep/2024:13:44:00 +0000] "DELETE /users/BigTugg HTTP/1.1" 200 19 "-" "PostmanRuntime/7.40.0"
 ::1 - - [09/Sep/2024:13:44:21 +0000] "GET /documentation.html HTTP/1.1" 200 13224 "-" "PostmanRuntime/7.40.0"
+::1 - - [09/Sep/2024:13:57:44 +0000] "GET /movies/Interstellar HTTP/1.1" 200 1509 "-" "PostmanRuntime/7.40.0"
+::1 - - [09/Sep/2024:13:58:16 +0000] "GET /movies/Django20%Unchained HTTP/1.1" 500 26 "-" "PostmanRuntime/7.40.0"
+::1 - - [09/Sep/2024:13:58:57 +0000] "GET /movies/The%20Princess%20Bride HTTP/1.1" 200 1226 "-" "PostmanRuntime/7.40.0"
+::1 - - [09/Sep/2024:13:59:10 +0000] "GET /movies/Interstellar HTTP/1.1" 200 1509 "-" "PostmanRuntime/7.40.0"
