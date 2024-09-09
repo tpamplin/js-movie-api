@@ -23,6 +23,11 @@ const userRouter = require("./routes/user.route");
 
 app.use(bodyParser.json());
 
+let auth = require("./routes/auth")(app);
+
+const passport = require("passport");
+require("./passport");
+
 // Logging
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
     flags: "a",

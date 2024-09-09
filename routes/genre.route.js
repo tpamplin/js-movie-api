@@ -4,8 +4,11 @@ const Models = require("../public/models.js");
 
 const Movie = Models.Movie;
 
+const passport = require("passport");
+require("../passport.js");
+
 //Returns a JSON object containing information about a specific director.
-genreRouter.get("/:Name", async (req, res) => {
+genreRouter.get("/:Name", passport.authenticate("jwt", { session: false }), async (req, res) => {
     await Movie.findOne({ "Genre.Name": req.params.Name })
         .then((movie) => {
             if (movie) {

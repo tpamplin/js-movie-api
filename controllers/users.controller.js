@@ -31,6 +31,9 @@ module.exports = {
     },
 
     updateUsername: async (req, res) => {
+        if (req.user.Username !== req.params.Username) {
+            return res.status(400).send("Permission Denied");
+        }
         await Users.findOneAndUpdate(
             { Username: req.params.Username },
             { $set: { Username: req.body.Username } },
@@ -47,6 +50,9 @@ module.exports = {
     },
 
     addFavorite: async (req, res) => {
+        if (req.user.Username !== req.params.Username) {
+            return res.status(400).send("Permission Denied");
+        }
         await Users.findOneAndUpdate(
             { Username: req.params.Username },
             { $push: { Favorites: req.body.MovieID } },
@@ -63,6 +69,9 @@ module.exports = {
     },
 
     deleteFavorite: async (req, res) => {
+        if (req.user.Username !== req.params.Username) {
+            return res.status(400).send("Permission Denied");
+        }
         console.log("Removing " + req.body.MovieID + " from " + req.params.Username + "'s favorites list.");
         await Users.findOneAndUpdate(
             { Username: req.params.Username },
@@ -79,6 +88,9 @@ module.exports = {
     },
 
     deleteUser: async (req, res) => {
+        if (req.user.Username !== req.params.Username) {
+            return res.status(400).send("Permission Denied");
+        }
         console.log("Deleting user: " + req.params.Username);
         await Users.findOneAndDelete({ Username: req.params.Username })
             .then((user) => {
