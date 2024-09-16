@@ -1,9 +1,17 @@
 const Models = require("../public/models.js");
 
+const { check, validationResult } = require("express-validator");
+
 const Users = Models.User;
 
 module.exports = {
     addUser: async (req, res) => {
+        let errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() });
+        }
+
         let hashedPassword = Users.hashPassword(req.body.Password);
         await Users.findOne({ Usernmame: req.body.Username })
             .then((user) => {
