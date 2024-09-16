@@ -227,3 +227,7 @@ TimeStamp: Mon Jul 22 2024 10:08:37 GMT-0400 (Eastern Daylight Time)
 ::1 - - [09/Sep/2024:21:09:36 +0000] "GET /movies/ HTTP/1.1" 200 13098 "-" "PostmanRuntime/7.40.0"
 ::1 - - [09/Sep/2024:21:14:01 +0000] "DELETE /users/Wollonof/favorites HTTP/1.1" 400 17 "-" "PostmanRuntime/7.40.0"
 ::1 - - [09/Sep/2024:21:14:13 +0000] "DELETE /users/BigTugg/favorites HTTP/1.1" 200 166 "-" "PostmanRuntime/7.40.0"
+::1 - - [10/Sep/2024:14:40:30 +0000] "POST /users HTTP/1.1" 201 174 "-" "PostmanRuntime/7.40.0"
+::1 - - [10/Sep/2024:14:44:26 +0000] "POST /users/BigTugg/favorites HTTP/1.1" 400 17 "-" "PostmanRuntime/7.40.0"
+::1 - - [10/Sep/2024:14:45:16 +0000] "POST /users/PJimbus/favorites HTTP/1.1" 200 200 "-" "PostmanRuntime/7.40.0"
+::1 - - [10/Sep/2024:14:46:17 +0000] "GET /movies/ HTTP/1.1" 200 13098 "-" "PostmanRuntime/7.40.0"

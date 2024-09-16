@@ -4,6 +4,7 @@ const Users = Models.User;
 
 module.exports = {
     addUser: async (req, res) => {
+        let hashedPassword = Users.hashPassword(req.body.Password);
         await Users.findOne({ Usernmame: req.body.Username })
             .then((user) => {
                 if (user) {
@@ -11,7 +12,7 @@ module.exports = {
                 } else {
                     Users.create({
                         Username: req.body.Username,
-                        Password: req.body.Password,
+                        Password: hashedPassword,
                         Email: req.body.Email,
                         Birthday: req.body.Birthday,
                     })
