@@ -68,7 +68,7 @@ app.use((err, req, res, next) => {
     res.status(500).send("A wild Error has appeared!");
 });
 
-const port = "process.env.PORT" || 8080;
+const port = process.env.PORT || 8080;
 
 // deploy server
 app.listen(port, "0.0.0.0", () => {
