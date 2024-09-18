@@ -13,7 +13,7 @@ const express = require("express"),
 
 // mongoose.connect("mongodb://localhost:27017/myFlixDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
-mongoose.connect("process.env.CONNECTION_URI");
+mongoose.connect(process.env.CONNECTION_URI);
 
 const app = express();
 
