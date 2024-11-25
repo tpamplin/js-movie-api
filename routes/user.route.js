@@ -22,7 +22,7 @@ userRouter.post(
 );
 
 //Updates the username to the new username the user has picked.
-userRouter.put("/:Username", cors(), passport.authenticate("jwt", { session: false }), userController.updateUser);
+userRouter.put("/:Username", passport.authenticate("jwt", { session: false }), userController.updateUser);
 
 //Adds a movie to a user's list of favorite movies.
 userRouter.post("/:Username/favorites", passport.authenticate("jwt", { session: false }), userController.addFavorite);
