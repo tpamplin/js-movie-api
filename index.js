@@ -25,9 +25,9 @@ const userRouter = require("./routes/user.route");
 
 app.use(bodyParser.json());
 
-// const cors = require("cors");
+const cors = require("cors");
 
-// app.use(cors());
+app.use(cors());
 
 // let allowedOrigins = ["http://localhost:1234"];
 
