@@ -17,6 +17,12 @@ mongoose.connect(process.env.CONNECTION_URI);
 
 const app = express();
 
+app.use(bodyParser.json());
+
+const cors = require("cors");
+
+app.use(cors());
+
 const router = require("./routes/route");
 const movieRouter = require("./routes/movie.route");
 const directorRouter = require("./routes/director.route");
@@ -24,10 +30,6 @@ const genreRouter = require("./routes/genre.route");
 const userRouter = require("./routes/user.route");
 
 app.use(bodyParser.json());
-
-const cors = require("cors");
-
-app.use(cors());
 
 // let allowedOrigins = ["http://localhost:1234"];
 
