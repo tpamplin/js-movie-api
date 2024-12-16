@@ -42,8 +42,7 @@ app.use(cors());
 //         },
 //     })
 // );
-
-const passport = require("passport");
+let auth = require("./routes/auth")(app);
 require("./passport");
 
 const router = require("./routes/route");
@@ -51,8 +50,6 @@ const movieRouter = require("./routes/movie.route");
 const directorRouter = require("./routes/director.route");
 const genreRouter = require("./routes/genre.route");
 const userRouter = require("./routes/user.route");
-
-let auth = require("./routes/auth")(app);
 
 app.use("/", router);
 app.use("/movies", movieRouter);
