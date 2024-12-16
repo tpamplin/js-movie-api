@@ -44,8 +44,9 @@ app.use(cors());
 //         },
 //     })
 // );
-let auth = require("./routes/auth")(app);
+
 require("./passport");
+let auth = require("./routes/auth")(app);
 
 const router = require("./routes/route");
 const movieRouter = require("./routes/movie.route");
