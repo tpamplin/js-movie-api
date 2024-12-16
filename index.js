@@ -2,7 +2,7 @@
 // Movie API responds to requests for information about movies and users
 
 // import dependencies
-// require("dotenv").config();
+require("dotenv").config();
 
 const passport = require("passport");
 

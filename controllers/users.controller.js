@@ -48,7 +48,7 @@ module.exports = {
             {
                 $set: {
                     Username: req.body.Username,
-                    Password: Users.hashPassword(req.body.Password),
+                    //    Password: Users.hashPassword(req.body.Password),
                     Email: req.body.Email,
                     Birthday: req.body.Birthday,
                 },
