@@ -9,27 +9,25 @@ const express = require("express"),
     fs = require("fs"),
     path = require("path"),
     bodyParser = require("body-parser"),
-    mongoose = require("mongoose");
+    cors = require("cors");
+
+const app = express();
+app.use(bodyParser.json());
+app.use(express.json());
+
+const mongoose = require("mongoose");
 
 // mongoose.connect("mongodb://localhost:27017/myFlixDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connect(process.env.CONNECTION_URI);
 
-const app = express();
-
-app.use(bodyParser.json());
-
-const cors = require("cors");
+// Logging
+const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
+    flags: "a",
+});
+app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use(cors());
-
-const router = require("./routes/route");
-const movieRouter = require("./routes/movie.route");
-const directorRouter = require("./routes/director.route");
-const genreRouter = require("./routes/genre.route");
-const userRouter = require("./routes/user.route");
-
-app.use(bodyParser.json());
 
 // let allowedOrigins = ["http://localhost:1234"];
 
@@ -46,25 +44,24 @@ app.use(bodyParser.json());
 //     })
 // );
 
-let auth = require("./routes/auth")(app);
-
 const passport = require("passport");
 require("./passport");
 
-// Logging
-const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
-    flags: "a",
-});
+const router = require("./routes/route");
+const movieRouter = require("./routes/movie.route");
+const directorRouter = require("./routes/director.route");
+const genreRouter = require("./routes/genre.route");
+const userRouter = require("./routes/user.route");
 
-app.use(morgan("combined", { stream: accessLogStream }));
-
-app.use(express.static("public"));
+let auth = require("./routes/auth")(app);
 
 app.use("/", router);
 app.use("/movies", movieRouter);
 app.use("/users", userRouter);
 app.use("/directors", directorRouter);
 app.use("/genres", genreRouter);
+
+app.use(express.static("public"));
 
 // Error handling.
 app.use((err, req, res, next) => {
