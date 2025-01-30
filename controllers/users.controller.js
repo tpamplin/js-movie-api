@@ -46,7 +46,7 @@ module.exports = {
         if (!user) {
             return res.status(404).send(req.body.Username + "was not found.");
         }
-        Users.findOne({ Username: req.body.Username })
+        await Users.findOne({ Username: req.body.Username })
             .then((user) => {
                 res.status(201).json(user);
             })
@@ -55,8 +55,6 @@ module.exports = {
                 res.status(500).send("Error: " + error);
             });
     },
-
-    getFavorites: async (req, res) => {},
 
     updateUser: async (req, res) => {
         if (req.user.Username !== req.params.Username) {
