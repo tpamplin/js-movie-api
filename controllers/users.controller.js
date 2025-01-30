@@ -42,9 +42,9 @@ module.exports = {
     getUser: async (req, res) => {
         await Users.findOne({ Username: req.body.Username })
             .then((user) => {
-                if (!user) {
-                    return res.status(404).send(req.params.Username + " was not found.");
-                }
+                // if (!user) {
+                //     return res.status(404).send(req.params.Username + " was not found.");
+                // }
                 res.status(201).json(user);
             })
             .catch((error) => {
