@@ -40,9 +40,6 @@ module.exports = {
     },
 
     getUser: async (req, res) => {
-        if (req.user.Username !== req.params.Username) {
-            return res.status(400).send("Permission Denied");
-        }
         await Users.findOne({ Username: req.body.Username })
             .then((user) => {
                 if (!user) {
