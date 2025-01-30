@@ -45,7 +45,7 @@ module.exports = {
                 // if (!user) {
                 //     return res.status(404).send(req.params.Username + " was not found.");
                 // }
-                res.status(201).json(user);
+                res.json(user);
             })
             .catch((error) => {
                 console.error(erorr);
