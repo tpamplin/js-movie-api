@@ -43,7 +43,7 @@ module.exports = {
         await Users.findOne({ Username: req.body.Username })
             .then((user) => {
                 if (!user) {
-                    return res.status(404).send(req.body.Username + " was not found.");
+                    return res.status(404).send(req.params.Username + " was not found.");
                 }
                 res.status(201).json(user);
             })
