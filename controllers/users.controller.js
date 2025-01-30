@@ -43,11 +43,11 @@ module.exports = {
         if (req.user.Username !== req.params.Username) {
             return res.status(400).send("Permission Denied");
         }
-        if (!user) {
-            return res.status(404).send(req.body.Username + "was not found.");
-        }
         await Users.findOne({ Username: req.body.Username })
             .then((user) => {
+                if (!user) {
+                    return res.status(404).send(req.body.Username + "was not found.");
+                }
                 res.status(201).json(user);
             })
             .catch((error) => {
