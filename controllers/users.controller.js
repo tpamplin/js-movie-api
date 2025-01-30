@@ -39,6 +39,25 @@ module.exports = {
             });
     },
 
+    getUser: async (req, res) => {
+        if (req.user.Username !== req.params.Username) {
+            return res.status(400).send("Permission Denied");
+        }
+        if (!user) {
+            return res.status(404).send(req.body.Username + "was not found.");
+        }
+        Users.findOne({ Username: req.body.Username })
+            .then((user) => {
+                res.status(201).json(user);
+            })
+            .catch((error) => {
+                console.error(erorr);
+                res.status(500).send("Error: " + error);
+            });
+    },
+
+    getFavorites: async (req, res) => {},
+
     updateUser: async (req, res) => {
         if (req.user.Username !== req.params.Username) {
             return res.status(400).send("Permission Denied");
