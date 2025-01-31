@@ -13,7 +13,7 @@ module.exports = {
         }
 
         let hashedPassword = Users.hashPassword(req.body.Password);
-        await Users.findOne({ Usernmame: req.body.Username })
+        await Users.findOne({ Username: req.body.Username })
             .then((user) => {
                 if (user) {
                     return res.status(400).send(req.body.Username + " already exists.");
@@ -40,7 +40,7 @@ module.exports = {
     },
 
     getUser: async (req, res) => {
-        await Users.findOne({ Username: req.body.Username })
+        await Users.findOne({ Username: req.params.Username })
             .then((user) => {
                 // if (!user) {
                 //     return res.status(404).send(req.params.Username + " was not found.");
