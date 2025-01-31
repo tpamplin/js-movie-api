@@ -56,7 +56,7 @@ module.exports = {
     getUserFavorites: async (req, res) => {
         await Users.findOne({ Username: req.params.Username })
             .then((user) => {
-                const favorites = user.favorites;
+                const favorites = user.Favorites;
                 res.json(favorites);
             })
             .catch((error) => {
