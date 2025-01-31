@@ -27,6 +27,13 @@ userRouter.put("/:Username", passport.authenticate("jwt", { session: false }), u
 // Returns user data
 userRouter.get("/:Username", passport.authenticate("jwt", { session: false }), userController.getUser);
 
+//Returns a specific user's favorites.
+userRouter.get(
+    "/:Username/favorites",
+    passport.authenticate("jwt", { session: false }),
+    userController.getUserFavorites
+);
+
 //Adds a movie to a user's list of favorite movies.
 userRouter.post("/:Username/favorites", passport.authenticate("jwt", { session: false }), userController.addFavorite);
 

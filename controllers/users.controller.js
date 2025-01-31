@@ -53,6 +53,18 @@ module.exports = {
             });
     },
 
+    getUserFavorites: async (req, res) => {
+        await Users.findOne({ Username: req.params.Username })
+            .then((user) => {
+                const favorites = user.favorites;
+                res.json(favorites);
+            })
+            .catch((error) => {
+                console.error(erorr);
+                res.status(500).send("Error: " + error);
+            });
+    },
+
     updateUser: async (req, res) => {
         if (req.user.Username !== req.params.Username) {
             return res.status(400).send("Permission Denied");
