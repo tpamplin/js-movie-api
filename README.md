@@ -1,8 +1,59 @@
-# js-movie-app
+# MyFlix API
 
-An app that serves up information about different Movies, Genres, and Directors.
-Create a new user, login, and then you can request details on all movies in the database or just one specific movie. You can also request information about a specific genre or director. Once you find the movie you are looking for, you can add it to your favorites list to make it easy to find later! Finally, you can change your username, or delete your account.
+## Table of Contents
 
-For more information on how to request data from the api, visit the documentation: https://myflix-timpamplin-021f285e4632.herokuapp.com/out/index.html
+-   [Overview](#overview)
+-   [Features](#features)
+-   [Technologies Used](#technologies-used)
+-   [API Documentation](#api-documentation)
+-   [Installation](#installation)
 
-Written in Javascript with Node.JS and Express, hosted with Heroku. The database is a non-relational json database made with MongoDB and hosted with MongoDB Atlas.
+## Overview
+
+The **MyFlix API** serves detailed information about movies, genres, and directors. Users can create an account, log in, and explore the database. The API also allows users to manage a list of favorite movies and update or delete their accounts.
+
+## Features
+
+-   Fetch all available movies or request details about a specific movie.
+-   Fetch information about genres and directors.
+-   User account creation and authentication.
+-   Manage a list of favorite movies.
+-   Update user account information or delete the account.
+
+## Technologies Used
+
+-   **Programming Language:** JavaScript
+-   **Framework:** Node.js with Express
+-   **Database:** MongoDB (non-relational JSON database) hosted with MongoDB Atlas
+-   **Hosting Platform:** Heroku
+
+## API Documentation
+
+For detailed instructions on how to request data from the API, please refer to the [API Documentation](https://myflix-timpamplin-021f285e4632.herokuapp.com/out/index.html).
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/tpamplin/MyFlix-Client.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd myflix-api
+    ```
+
+3. Install dependencies
+
+    ```bash
+    npm install
+    ```
+
+4. Start the server:
+    ```bash
+    npm start
+    ```
