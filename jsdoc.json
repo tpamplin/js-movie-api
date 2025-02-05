@@ -1,0 +1,14 @@
+{
+    "source": {
+        "include": [
+            "routes/auth.js",
+            "routes/director.route.js",
+            "routes/genre.route.js",
+            "routes/movie.route.js",
+            "routes/user.route.js",
+            "routes/route.js",
+            "controllers/movies.controller.js",
+            "controllers/users.controller.js"
+        ]
+    }
+}

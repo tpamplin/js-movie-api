@@ -28,12 +28,22 @@ let generateJWTToken = (user) => {
 };
 
 /**
- * This function will check the user's info that they send with their login request and checks to see if it matches a user on the database.
- * If a user is found with a matching username and password, it sends the entire user object back along with a jwt token for authentication in future requests.
+ * POST login
  *
- * @param {*} router
- * @param {*} req Recieves username and password
- * @param {*} res The user object and a jwt token
+ * Authenticates the user using the local Passport strategy. If authentication is successful,
+ * a JWT token is generated and returned in the response. If authentication fails, an error message
+ * is sent back.
+ *
+ * @function
+ * @name POST /login authenticate
+ * @param {Object} req - The Express request object. It contains the `Username` and `Password` fields
+ *                       submitted by the client in the body.
+ * @param {Object} res - The Express response object. It is used to send the response back to the client.
+ *
+ * @returns {void} Sends a JSON response containing either the user object and JWT token or an error message.
+ *
+ * @throws Sends 500 status response if there is an error.
+ *
  */
 module.exports = (router) => {
     router.post("/login", (req, res) => {
@@ -46,7 +56,7 @@ module.exports = (router) => {
             }
             req.login(user, { session: false }, (error) => {
                 if (error) {
-                    res.send(error);
+                    res.status(500).send(error);
                 }
                 let token = generateJWTToken(user.toJSON());
                 return res.json({ user, token });

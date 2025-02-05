@@ -4,11 +4,19 @@ const Movie = Models.Movie;
 
 module.exports = {
     /**
+     * GET getMovie:
+     *
      * Recieves a movie title and sends a JSON object with information about a movie which has that title.
      *
+     * @function
+     * @name GET /movies/:Title
+     * @param {Object} req -Contains the title of the move that you want to find.
+     *
+     * @param {Object} res -A JSON object containing data about the movie you want.
+     *
+     * @throws Sends 500 status response if there is an error.\
+     *
      * @async
-     * @param {*} req Contains the title of the move that you want to find.
-     * @param {*} res A JSON object containing data about the movie you want.
      */
     getMovie: async (req, res) => {
         console.log("finding " + req.params.Title);
@@ -21,11 +29,19 @@ module.exports = {
     },
 
     /**
+     * GET getAll:
+     *
      * Sends an array of ALL movie objects when requested
      *
+     * @function
+     * @name GET /movies/
+     * @param {Object} req -Nothing really.
+     *
+     * @param {Object} res -A JSON object with all movies
+     *
+     * @throws Sends 500 status response if there is an error.
+     *
      * @async
-     * @param {*} req Nothing really.
-     * @param {*} res A JSON object with all movies
      */
     getAll: async (req, res) => {
         console.log("Getting all movies.");
