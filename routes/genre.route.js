@@ -7,7 +7,14 @@ const Movie = Models.Movie;
 const passport = require("passport");
 require("../passport.js");
 
-//Returns a JSON object containing information about a specific director.
+/**
+ * Takes the name of a specific genre, and finds a genre in the database with the same name.
+ * Sends back a JSON object containing information about that genre.
+ *
+ * @async
+ * @param {*} req The name of a genre
+ * @param {*} res A JSON object containing all information about that genre.
+ */
 genreRouter.get("/:Name", passport.authenticate("jwt", { session: false }), async (req, res) => {
     await Movie.findOne({ "Genre.Name": req.params.Name })
         .then((movie) => {
