@@ -44,9 +44,9 @@ module.exports = {
      *
      * @param {Object} res -The completed user data that will be sent back to the user.
      *
-     * @returns {void} a message telling the user that a user with their username already exists if their username is taken.
+     * @returns a message telling the user that a user with their username already exists if their username is taken.
      *
-     * @throws {Error} If an error occurs during processing.
+     * @throws Sends 500 status response if there is an error.
      *
      * @async
      */
@@ -95,7 +95,7 @@ module.exports = {
      *
      * @param {Object} res -An object containing the user's data.
      *
-     * @throws {Error} If an error occurs during processing.
+     * @throws Sends 500 status response if there is an error.
      *
      * @async
      */
@@ -124,7 +124,7 @@ module.exports = {
      *
      * @param {Object} res -A list of movie IDs corresponding to the user's favorites.
      *
-     * @throws {Error} If an error occurs during processing.
+     * @throws Sends 500 status response if there is an error.
      *
      * @async
      */
@@ -152,10 +152,10 @@ module.exports = {
      *
      * @param {Object} res - A JSON object containing the updated user information
      *
-     * @returns {void} a status message saying permission denied if the request did not come
+     * @returns A status message saying permission denied if the request did not come
      *                 from the same username that the user is trying to change if that is the case.
      *
-     * @throws {Error} If an error occurs during processing.
+     * @throws Sends 500 status response if there is an error.
      *
      * @async
      */
@@ -197,9 +197,9 @@ module.exports = {
      *
      * @param {Object} res - A JSON object with the user's updated data, including their updated favorites list.
      *
-     * @returns {void} "Permission Denied" if the request did not come from the same user whose favorites list you are trying to update.
+     * @returns "Permission Denied" if the request did not come from the same user whose favorites list you are trying to update.
      *
-     * @throws {Error} If an error occurs during processing.
+     * @throws Sends 500 status response if there is an error.
      *
      * @async
      */
@@ -233,9 +233,9 @@ module.exports = {
      *
      * @param {Object} res -A JSON object with the user's updated data, including their updated favorites list.
      *
-     * @returns {void} "Permission Denied" if the request did not come from the same user whose favorites list you are trying to update.
+     * @returns "Permission Denied" if the request did not come from the same user whose favorites list you are trying to update.
      *
-     * @throws {Error} If an error occurs during processing.
+     * @throws Sends 500 status response if there is an error.
      *
      * @async
      */
@@ -271,7 +271,7 @@ module.exports = {
      *
      * @returns "Permission Denied" if the request did not come from the same user whose account you are trying to delete.
      *
-     * @throws {Error} If an error occurs during processing.
+     * @throws Sends 500 status response if there is an error.
      *
      * @async
      */
@@ -304,13 +304,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DELETE/users/:Username">DELETE /users/:Username</a></li><li><a href="global.html#DELETE/users/:Username/favorites">DELETE /users/:Username/favorites</a></li><li><a href="global.html#GET/directors/:Name">GET /directors/:Name</a></li><li><a href="global.html#GET/genres/:Name">GET /genres/:Name</a></li><li><a href="global.html#GET/users/:Name">GET /users/:Name</a></li><li><a href="global.html#GET/users/:Username/favorites">GET /users/:Username/favorites</a></li><li><a href="global.html#POST/loginauthenticate">POST /login authenticate</a></li><li><a href="global.html#POST/users/">POST /users/</a></li><li><a href="global.html#POST/users/:Username/favorites">POST /users/:Username/favorites</a></li><li><a href="global.html#PUT/users/:Username">PUT /users/:Username</a></li><li><a href="global.html#generateJWTToken">generateJWTToken</a></li><li><a href="global.html#jwt">jwt</a></li><li><a href="global.html#jwtSecret">jwtSecret</a></li><li><a href="global.html#typeroute">type route</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DELETE/users/:Username">DELETE /users/:Username</a></li><li><a href="global.html#DELETE/users/:Username/favorites">DELETE /users/:Username/favorites</a></li><li><a href="global.html#GET/directors/:Name">GET /directors/:Name</a></li><li><a href="global.html#GET/genres/:Name">GET /genres/:Name</a></li><li><a href="global.html#GET/movies/">GET /movies/</a></li><li><a href="global.html#GET/movies/:Title">GET /movies/:Title</a></li><li><a href="global.html#GET/users/:Name">GET /users/:Name</a></li><li><a href="global.html#GET/users/:Username/favorites">GET /users/:Username/favorites</a></li><li><a href="global.html#POST/loginauthenticate">POST /login authenticate</a></li><li><a href="global.html#POST/users/">POST /users/</a></li><li><a href="global.html#POST/users/:Username/favorites">POST /users/:Username/favorites</a></li><li><a href="global.html#PUT/users/:Username">PUT /users/:Username</a></li><li><a href="global.html#generateJWTToken">generateJWTToken</a></li><li><a href="global.html#jwt">jwt</a></li><li><a href="global.html#jwtSecret">jwtSecret</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Feb 05 2025 00:52:41 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Feb 05 2025 01:02:21 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
